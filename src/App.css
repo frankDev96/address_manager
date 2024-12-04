@@ -1,0 +1,125 @@
+  body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+  }
+
+  .container {
+      padding: 20px;
+  }
+
+  .header {
+      text-align: center;
+      background-color: #007bff;
+      color: white;
+      padding: 20px;
+      border-radius: 8px;
+  }
+
+  .header h1 {
+      margin: 0;
+      font-size: 24px;
+  }
+
+  .header p {
+      margin: 5px 0;
+      font-size: 14px;
+  }
+
+  .admin-login-btn {
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+
+  .admin-login-btn:hover {
+      background-color: #003d80;
+  }
+
+  .user-form {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .user-form h2 {
+      margin-bottom: 10px;
+  }
+
+  .user-form input {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+  }
+
+  .save-btn {
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+
+  .save-btn:hover {
+      background-color: #0056b3;
+  }
+
+  .map-container {
+      margin-top: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+  }
+
+  .user-groups {
+      margin-top: 20px;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .user-groups h2 {
+      margin-bottom: 10px;
+  }
+
+  .group {
+      margin-bottom: 20px;
+  }
+
+  .group-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .user-list {
+      margin-top: 10px;
+      list-style: none;
+      padding: 0;
+  }
+
+  .user-item {
+      display: flex;
+      justify-content: space-between;
+      background: #f1f1f1;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+  }
+
+  .contact-btn {
+      background: none;
+      border: none;
+      color: #007bff;
+      cursor: pointer;
+  }
