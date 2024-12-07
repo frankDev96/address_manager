@@ -4,19 +4,26 @@ import "leaflet/dist/leaflet.css";
 import Header from "./components/Header";
 import AddressPage from "./components/AddressPage";
 import UserGroupsList from "./components/UserGroupsList";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import ApproveAdmin from "./components/ApproveAdmin";
 
 const App = () => {
   return (
-    <div className="container">
-      {/* Header */}
-      <Header />
-
-      {/* Add / Update User Section */}
-      {/* <AddressPage /> admin access only */}
-
-      {/* User Groups Section */}
-      <UserGroupsList />
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/add-address"
+          element={"user" ? <AddressPage /> : <Navigate to="/" />}
+        />
+        <Route path="/" element={<UserGroupsList />} />
+        <Route path="/ApproveAdmin" element={<ApproveAdmin />} />
+      </Routes>
+    </Router>
   );
 };
 
