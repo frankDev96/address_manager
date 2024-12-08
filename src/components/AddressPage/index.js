@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, getDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import "./AddressPage.css";
@@ -13,7 +13,35 @@ const AddressPage = () => {
   const [location, setLocation] = useState([51.505, -0.09]);
   const [error, setError] = useState("");
   const [area, setArea] = useState("Kazhakkuttam");
+  const [areas, setAreas] = useState([]);
+  const [selectedArea, setSelectedArea] = useState("");
+
   const navigate = useNavigate();
+  const fetchAreas = async () => {
+    try {
+      const docRef = doc(db, "area_list", "areas"); // Reference to the Firestore document
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        setAreas(data.areas || []); // Set areas if it exists
+      } else {
+        console.log("No areas found in Firestore.");
+      }
+    } catch (error) {
+      console.error("Error fetching areas: ", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchAreas(); // Call the fetch function when the component mounts
+  }, []);
+  const handleChange = (event) => {
+    setArea(event.target.value);
+  };
+
+
+  console.log('areas', areas);
   const handleSave = async () => {
     if (!name || !address || !phone) {
       setError("All fields are required.");
@@ -46,6 +74,20 @@ const AddressPage = () => {
   return (
     <section className="user-form">
       <h2>Add / Update User Details</h2>
+
+      <div>
+        <h3>Select an Area</h3>
+        <select value={area} onChange={handleChange}>
+          <option value="" disabled>Select an area</option>
+          {areas.map((area, index) => (
+            <option key={index} value={area}>
+              {area}
+            </option>
+          ))}
+        </select>
+
+        {area && <p>You selected: {area}</p>}
+      </div>
       <input
         type="text"
         placeholder="Enter area name"

@@ -5,7 +5,7 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import Modal from "../Modal";
 import { db } from "../../firebase";
 
-const LoginModal = ({ isOpen = false, onClose = () => {} }) => {
+const LoginModal = ({ isOpen = false, onClose = () => { }, onsuccessLogin = () => { } }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -57,7 +57,7 @@ const LoginModal = ({ isOpen = false, onClose = () => {} }) => {
       );
 
       if (userDoc.exists() && userDoc.data().role === "admin") {
-        navigate("/add-address");
+        onsuccessLogin()
         onClose(false);
       } else {
         setError("You do not have admin access.");
