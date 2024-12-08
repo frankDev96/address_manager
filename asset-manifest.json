@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/address_manager/static/css/main.34047b53.css",
-    "main.js": "/address_manager/static/js/main.f73bc2e7.js",
+    "main.js": "/address_manager/static/js/main.1f4089cc.js",
     "index.html": "/address_manager/index.html",
     "main.34047b53.css.map": "/address_manager/static/css/main.34047b53.css.map",
-    "main.f73bc2e7.js.map": "/address_manager/static/js/main.f73bc2e7.js.map"
+    "main.1f4089cc.js.map": "/address_manager/static/js/main.1f4089cc.js.map"
   },
   "entrypoints": [
     "static/css/main.34047b53.css",
-    "static/js/main.f73bc2e7.js"
+    "static/js/main.1f4089cc.js"
   ]
 }
